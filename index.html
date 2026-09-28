@@ -1,0 +1,736 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dr. Amritpal Singh | Assistant Professor, CSE, NIT Jalandhar</title>
+  <meta name="description" content="Dr. Amritpal Singh, Assistant Professor (Grade-I) in Computer Science & Engineering at Dr B R Ambedkar NIT Jalandhar. Research in probabilistic data structures, machine learning, big data analytics, federated learning and large language models.">
+  <meta name="author" content="Dr. Amritpal Singh">
+  <meta name="keywords" content="Amritpal Singh, NIT Jalandhar, probabilistic data structures, bloom filter, machine learning, big data analytics, federated learning, LLM">
+
+  <!-- Open Graph (update og:url and og:image after you publish the page) -->
+  <meta property="og:type" content="profile">
+  <meta property="og:title" content="Dr. Amritpal Singh | Assistant Professor, CSE, NIT Jalandhar">
+  <meta property="og:description" content="Research, publications, projects, supervision and teaching of Dr. Amritpal Singh, NIT Jalandhar.">
+  <meta property="og:url" content="https://amritpalsingh203.github.io/">
+  <meta property="og:image" content="https://amritpalsingh203.github.io/photo.jpg.jpeg">
+  <meta property="og:site_name" content="Dr. Amritpal Singh">
+  <meta name="twitter:card" content="summary">
+
+  <style>
+    :root {
+      --navy: #1a3d6d;
+      --navy-deep: #12294b;
+      --accent: #0066cc;
+      --bg: #f2f5fa;
+      --card: #ffffff;
+      --text: #1e2a3b;
+      --muted: #5a6a7f;
+      --border: #dfe6f0;
+      --tag-bg: #e9f1fb;
+      --tag-text: #1a3d6d;
+      --ok: #1b7a4b;
+      --ok-bg: #e4f4ec;
+      --shadow: 0 1px 3px rgba(18, 41, 75, .06), 0 10px 28px rgba(18, 41, 75, .07);
+      --serif: Georgia, 'Times New Roman', Times, serif;
+      --sans: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+    }
+    body.dark {
+      --bg: #0d1424;
+      --card: #152039;
+      --text: #e6ecf5;
+      --muted: #9fb0c8;
+      --border: #25355a;
+      --tag-bg: #1e3358;
+      --tag-text: #d3e5ff;
+      --accent: #5aa9ff;
+      --ok: #5fd39a;
+      --ok-bg: #163b2e;
+      --shadow: 0 1px 3px rgba(0, 0, 0, .4), 0 10px 28px rgba(0, 0, 0, .35);
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0; font-family: var(--sans); background: var(--bg); color: var(--text);
+      line-height: 1.68; transition: background .3s ease, color .3s ease;
+    }
+    a { color: var(--accent); }
+    :focus-visible { outline: 3px solid var(--accent); outline-offset: 2px; border-radius: 4px; }
+
+    /* ---------- Top navigation ---------- */
+    .topbar {
+      position: fixed; inset: 0 0 auto 0; z-index: 100; background: var(--navy-deep);
+      box-shadow: 0 2px 12px rgba(0, 0, 0, .25);
+    }
+    .topbar-inner { max-width: 880px; margin: 0 auto; padding: 0 16px; height: 56px; display: flex; align-items: center; gap: 10px; }
+    .brand { color: #fff; font-family: var(--serif); font-weight: 700; font-size: 1.05rem; text-decoration: none; letter-spacing: .3px; white-space: nowrap; }
+    .nav-links { display: flex; gap: 2px; margin: 0 auto 0 18px; padding: 0; list-style: none; }
+    .nav-links a {
+      display: block; padding: 8px 11px; border-radius: 6px; color: rgba(255, 255, 255, .82);
+      text-decoration: none; font-size: .88rem; font-weight: 500; letter-spacing: .2px;
+      transition: background .2s ease, color .2s ease;
+    }
+    .nav-links a:hover, .nav-links a.active { background: rgba(255, 255, 255, .14); color: #fff; }
+    .icon-btn {
+      background: rgba(255, 255, 255, .12); color: #fff; border: 0; width: 38px; height: 38px;
+      border-radius: 50%; cursor: pointer; font-size: 1.05rem; display: inline-flex;
+      align-items: center; justify-content: center; transition: background .2s ease, transform .2s ease;
+    }
+    .icon-btn:hover { background: rgba(255, 255, 255, .26); transform: scale(1.06); }
+    .menu-btn { display: none; margin-left: auto; }
+
+    /* ---------- Hero ---------- */
+    .hero {
+      background: linear-gradient(135deg, var(--navy-deep) 0%, var(--navy) 60%, #24528f 100%);
+      color: #fff; padding: 112px 16px 96px; position: relative; overflow: hidden;
+    }
+    .hero::before {
+      content: ""; position: absolute; inset: 0; opacity: .07;
+      background-image: repeating-linear-gradient(45deg, #fff 0 1px, transparent 1px 18px);
+    }
+    .hero-inner { max-width: 880px; margin: 0 auto; display: flex; gap: 38px; align-items: center; position: relative; }
+    .hero-photo {
+      flex: 0 0 auto; width: 184px; height: 184px; border-radius: 50%; object-fit: cover; object-position: center top;
+      border: 5px solid rgba(255, 255, 255, .92); box-shadow: 0 10px 30px rgba(0, 0, 0, .35); background: #24528f;
+    }
+    .eyebrow { margin: 0 0 6px; font-size: .8rem; text-transform: uppercase; letter-spacing: 2px; color: #b9d3f5; }
+    .hero h1 { margin: 0; font-family: var(--serif); font-size: 2.5rem; line-height: 1.15; font-weight: 700; }
+    .hero .title { margin: 8px 0 0; font-size: 1.12rem; font-weight: 600; color: #dbe9fb; }
+    .hero .affil { margin: 2px 0 0; color: #c3d6f0; }
+    .hero .focus { margin: 12px 0 0; font-family: var(--serif); font-style: italic; color: #e8f1fd; font-size: .98rem; }
+    .actions { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 22px; }
+    .btn {
+      display: inline-flex; align-items: center; gap: 8px; padding: 9px 16px; border-radius: 8px;
+      font-size: .9rem; font-weight: 600; text-decoration: none; border: 1.5px solid #fff;
+      background: #fff; color: var(--navy);
+      transition: background .25s ease, color .25s ease, transform .25s ease, box-shadow .25s ease;
+    }
+    .btn:hover { transform: translateY(-2px); box-shadow: 0 8px 18px rgba(0, 0, 0, .28); }
+    .btn.outline { background: transparent; color: #fff; border-color: rgba(255, 255, 255, .6); }
+    .btn.outline:hover { background: #fff; color: var(--navy); border-color: #fff; }
+
+    /* ---------- Layout ---------- */
+    main { max-width: 880px; margin: 0 auto; padding: 0 16px 24px; }
+    .stats {
+      display: grid; grid-template-columns: repeat(4, 1fr); margin-top: -46px; position: relative; z-index: 2;
+      background: var(--card); border-radius: 14px; box-shadow: var(--shadow); border: 1px solid var(--border);
+      margin-bottom: 26px;
+    }
+    .stat { text-align: center; padding: 20px 8px; border-right: 1px solid var(--border); }
+    .stat:last-child { border-right: 0; }
+    .stat b { display: block; font-family: var(--serif); font-size: 1.9rem; color: var(--navy); line-height: 1.1; }
+    body.dark .stat b { color: #fff; }
+    .stat span { font-size: .8rem; color: var(--muted); text-transform: uppercase; letter-spacing: 1px; }
+
+    .card {
+      background: var(--card); border-radius: 12px; box-shadow: var(--shadow); border: 1px solid var(--border);
+      padding: 28px 32px; margin-bottom: 24px; scroll-margin-top: 76px;
+    }
+    .card h2 {
+      margin: 0 0 18px; font-family: var(--serif); font-size: 1.45rem; color: var(--navy);
+      padding-bottom: 12px; border-bottom: 1px solid var(--border); position: relative;
+    }
+    body.dark .card h2 { color: #fff; }
+    .card h2::after { content: ""; position: absolute; left: 0; bottom: -1px; width: 64px; height: 3px; background: var(--accent); }
+    .card h3 { margin: 22px 0 10px; font-family: var(--serif); font-size: 1.05rem; color: var(--navy); }
+    body.dark .card h3 { color: #cfe3ff; }
+    .card h3:first-of-type { margin-top: 0; }
+    .card p { margin: 0 0 12px; }
+    .card p:last-child { margin-bottom: 0; }
+
+    /* ---------- Timeline ---------- */
+    .timeline { list-style: none; margin: 0 0 6px; padding: 0 0 0 22px; border-left: 2px solid var(--border); }
+    .timeline li { position: relative; padding: 0 0 16px 18px; }
+    .timeline li:last-child { padding-bottom: 0; }
+    .timeline li::before {
+      content: ""; position: absolute; left: -30px; top: 7px; width: 14px; height: 14px; border-radius: 50%;
+      background: var(--accent); border: 3px solid var(--card); box-shadow: 0 0 0 2px var(--accent);
+    }
+    .timeline .role { font-weight: 700; }
+    .timeline .meta { color: var(--muted); font-size: .94rem; }
+
+    /* ---------- Tags ---------- */
+    .tags { display: flex; flex-wrap: wrap; gap: 10px; list-style: none; margin: 0; padding: 0; }
+    .tags li {
+      background: var(--tag-bg); color: var(--tag-text); padding: 6px 14px; border-radius: 999px;
+      font-size: .9rem; font-weight: 500; transition: transform .2s ease, background .2s ease, color .2s ease;
+    }
+    .tags li:hover { transform: translateY(-2px); background: var(--accent); color: #fff; }
+
+    /* ---------- Entry lists (projects, supervision) ---------- */
+    .entries { list-style: none; margin: 0; padding: 0; }
+    .entries li { padding: 14px 0; border-bottom: 1px solid var(--border); display: flex; gap: 16px; justify-content: space-between; align-items: flex-start; }
+    .entries li:first-child { padding-top: 0; }
+    .entries li:last-child { border-bottom: 0; padding-bottom: 0; }
+    .entry-title { font-weight: 600; }
+    .entry-meta { color: var(--muted); font-size: .92rem; }
+    .badges { display: flex; flex-direction: column; gap: 6px; align-items: flex-end; flex: 0 0 auto; }
+    .badge { font-size: .74rem; font-weight: 700; letter-spacing: .5px; text-transform: uppercase; padding: 3px 10px; border-radius: 999px; white-space: nowrap; }
+    .badge.role { border: 1.5px solid var(--accent); color: var(--accent); }
+    .badge.ongoing { background: var(--tag-bg); color: var(--tag-text); }
+    .badge.done { background: var(--ok-bg); color: var(--ok); }
+
+    /* ---------- Publications ---------- */
+    .filter-bar { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; margin-bottom: 18px; }
+    .filter-bar .label { font-size: .88rem; color: var(--muted); margin-right: 4px; }
+    .chip {
+      border: 1.5px solid var(--border); background: transparent; color: var(--text); padding: 5px 14px;
+      border-radius: 999px; font: inherit; font-size: .86rem; cursor: pointer; transition: all .2s ease;
+    }
+    .chip:hover { border-color: var(--accent); color: var(--accent); }
+    .chip[aria-pressed="true"] { background: var(--accent); border-color: var(--accent); color: #fff; }
+    body.dark .chip[aria-pressed="true"] { color: #0b1220; }
+    .pubs { margin: 0; padding-left: 28px; }
+    .pubs li { padding: 0 0 15px 6px; }
+    .pubs li::marker { color: var(--accent); font-weight: 700; }
+    .pubs li[hidden] { display: none; }
+    .pub-title { font-weight: 600; }
+    .pub-meta { color: var(--muted); font-size: .92rem; }
+    .pub-meta em { color: var(--text); }
+    .doi {
+      display: inline-block; margin-left: 4px; padding: 1px 9px; border: 1px solid var(--accent);
+      border-radius: 999px; font-size: .78rem; font-weight: 600; text-decoration: none; white-space: nowrap;
+      transition: background .2s ease, color .2s ease;
+    }
+    .doi:hover { background: var(--accent); color: #fff; }
+    .pub-foot { margin-top: 8px; display: flex; flex-wrap: wrap; gap: 12px; justify-content: space-between; color: var(--muted); font-size: .88rem; }
+
+    /* ---------- Plain lists ---------- */
+    .plain-list { list-style: none; margin: 0; padding: 0; }
+    .plain-list li { padding: 10px 0; border-bottom: 1px solid var(--border); display: flex; gap: 16px; }
+    .plain-list li:first-child { padding-top: 0; }
+    .plain-list li:last-child { border-bottom: 0; padding-bottom: 0; }
+    .plain-list .year { flex: 0 0 74px; font-family: var(--serif); font-weight: 700; color: var(--accent); }
+    .two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 8px 36px; }
+    .courses { list-style: none; margin: 0; padding: 0; }
+    .courses li { padding: 7px 0 7px 22px; position: relative; border-bottom: 1px dashed var(--border); }
+    .courses li:last-child { border-bottom: 0; }
+    .courses li::before { content: "▸"; position: absolute; left: 0; color: var(--accent); }
+
+    footer { text-align: center; color: var(--muted); font-size: .88rem; padding: 12px 16px 44px; }
+    footer .rule { width: 60px; height: 3px; background: var(--accent); margin: 0 auto 14px; border-radius: 2px; }
+
+    /* ---------- Scroll animation ---------- */
+    .reveal { opacity: 0; transform: translateY(24px); transition: opacity .7s ease, transform .7s ease; }
+    .reveal.visible { opacity: 1; transform: none; }
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+      .reveal { opacity: 1; transform: none; transition: none; }
+      * { transition-duration: .01ms !important; }
+    }
+    @media print {
+      .topbar, .filter-bar { display: none; }
+      .hero { padding-top: 32px; background: #fff; color: #000; }
+      .reveal { opacity: 1; transform: none; }
+    }
+
+    /* ---------- Responsive ---------- */
+    @media (max-width: 800px) {
+      .menu-btn { display: inline-flex; }
+      .nav-links {
+        display: none; position: absolute; top: 56px; left: 0; right: 0; flex-direction: column;
+        margin: 0; padding: 8px 16px 14px; background: var(--navy-deep); box-shadow: 0 10px 18px rgba(0, 0, 0, .3);
+      }
+      .nav-links.open { display: flex; }
+      .nav-links a { padding: 12px; }
+      .hero { padding: 96px 16px 84px; }
+      .hero-inner { flex-direction: column; text-align: center; gap: 22px; }
+      .actions { justify-content: center; }
+      .hero h1 { font-size: 2rem; }
+      .stats { grid-template-columns: repeat(2, 1fr); }
+      .stat:nth-child(2) { border-right: 0; }
+      .stat:nth-child(-n+2) { border-bottom: 1px solid var(--border); }
+      .card { padding: 22px 18px; }
+      .two-col { grid-template-columns: 1fr; }
+      .entries li { flex-direction: column; gap: 8px; }
+      .badges { flex-direction: row; flex-wrap: wrap; align-items: flex-start; }
+      .plain-list li { flex-direction: column; gap: 2px; }
+    }
+  </style>
+  <noscript><style>.reveal { opacity: 1; transform: none; }</style></noscript>
+</head>
+<body>
+
+  <header id="top">
+    <div class="topbar">
+      <nav class="topbar-inner" aria-label="Primary">
+        <a class="brand" href="#top">Dr. Amritpal Singh</a>
+        <ul class="nav-links" id="nav-links">
+          <li><a href="#about">About</a></li>
+          <li><a href="#education">Education</a></li>
+          <li><a href="#research">Research</a></li>
+          <li><a href="#publications">Publications</a></li>
+          <li><a href="#awards">Awards</a></li>
+          <li><a href="#teaching">Teaching</a></li>
+        </ul>
+        <button class="icon-btn menu-btn" id="menu-btn" aria-label="Toggle navigation menu" aria-expanded="false" aria-controls="nav-links">☰</button>
+        <button class="icon-btn" id="theme-toggle" aria-label="Switch to dark mode" aria-pressed="false" title="Toggle dark mode">🌙</button>
+      </nav>
+    </div>
+
+    <!-- Hero -->
+    <div class="hero">
+      <div class="hero-inner">
+        <!-- PHOTO: save your picture as photo.jpg in the same folder as this file (see instructions). -->
+        <img class="hero-photo" id="profile-photo" src="photo.jpg.jpeg" alt="Portrait of Dr. Amritpal Singh" width="184" height="184">
+        <div>
+          <p class="eyebrow">Department of Computer Science &amp; Engineering</p>
+          <h1>Dr. Amritpal Singh</h1>
+          <p class="title">Assistant Professor (Grade-I)</p>
+          <p class="affil">Dr B R Ambedkar National Institute of Technology, Jalandhar</p>
+          <p class="focus">Probabilistic Data Structures · Machine Learning · Big Data Analytics</p>
+          <div class="actions">
+            <a class="btn" href="mailto:apsingh@nitj.ac.in">✉ Email</a>
+            <!-- Replace the three links below with your own profile URLs -->
+            <a class="btn outline" href="https://scholar.google.com/citations?user=At9LsDsAAAAJ&amp;hl=en" target="_blank" rel="noopener noreferrer">🎓 Google Scholar</a>
+            <a class="btn outline" href="https://www.linkedin.com/in/amritpal-singh-a9418674/" target="_blank" rel="noopener noreferrer">in LinkedIn</a>
+            <a class="btn outline" href="https://orcid.org/0000-0002-2080-7392" target="_blank" rel="noopener noreferrer">iD ORCID</a>
+            <!-- CV button hidden until cv.pdf is uploaded. To show it, remove the comment markers around the next line. -->
+            <!-- <a class="btn outline" href="cv.pdf" download>⬇ Download CV</a> -->
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+
+    <!-- Highlights -->
+    <section class="stats reveal" aria-label="Career highlights">
+      <div class="stat"><b>28</b><span>Journal Papers</span></div>
+      <div class="stat"><b>24</b><span>SCI / SCIE Indexed</span></div>
+      <div class="stat"><b>8+</b><span>Years Teaching</span></div>
+      <div class="stat"><b>5</b><span>Funded Projects</span></div>
+    </section>
+
+    <!-- About -->
+    <section class="card reveal" id="about" aria-labelledby="about-h">
+      <h2 id="about-h">About</h2>
+      <p>Dr. Amritpal Singh is an Assistant Professor (Grade-I) in the Department of Computer Science &amp; Engineering at Dr B R Ambedkar National Institute of Technology (NIT) Jalandhar, where he has served since November 2019. His research centres on machine learning, big data analytics and memory-efficient algorithms, with particular expertise in probabilistic data structures and their applications in healthcare, smart cities and the Internet of Things.</p>
+      <p>His current work extends to federated learning and large language models, including reliable LLM-based agents and practical AI tools such as institutional chatbots and academic support systems. He earned his Ph.D. from Thapar Institute of Engineering and Technology, Patiala (2018), and brings more than eight years of teaching and research experience to the classroom and the laboratory.</p>
+      <p>He has authored 28 journal papers, contributed to books from CRC Press, Springer and Wiley, led sponsored and institutional research projects, and supervised doctoral, postgraduate and undergraduate research. He has been listed among the world's Top 2% scientists in the Stanford University–Elsevier ranking (2022 and 2025).</p>
+    </section>
+
+    <!-- Education & Experience -->
+    <section class="card reveal" id="education" aria-labelledby="edu-h">
+      <h2 id="edu-h">Education &amp; Experience</h2>
+      <h3>Education</h3>
+      <ul class="timeline">
+        <li>
+          <div class="role">Ph.D., Computer Science &amp; Engineering</div>
+          <div class="meta">Thapar Institute of Engineering and Technology, Patiala · 2018</div>
+          <div class="meta">Thesis: <em>A Novel Technique for Efficient Storage and Retrieval of Massive Data Sets using Probabilistic Data Structures</em> · Supervisor: Prof. Shalini Batra</div>
+        </li>
+        <li>
+          <div class="role">M.E., Software Engineering</div>
+          <div class="meta">Thapar Institute of Engineering and Technology, Patiala · 2013</div>
+        </li>
+        <li>
+          <div class="role">B.Tech., Computer Science &amp; Engineering</div>
+          <div class="meta">Punjab Technical University · 2011</div>
+        </li>
+      </ul>
+
+      <h3>Academic &amp; Professional Experience</h3>
+      <ul class="timeline">
+        <li>
+          <div class="role">Assistant Professor (Grade-I), Dept. of CSE</div>
+          <div class="meta">NIT Jalandhar · Dec 2022 – Present</div>
+        </li>
+        <li>
+          <div class="role">Assistant Professor, Dept. of CSE</div>
+          <div class="meta">NIT Jalandhar · Nov 2019 – Dec 2022</div>
+        </li>
+        <li>
+          <div class="role">Lecturer</div>
+          <div class="meta">Thapar Institute of Engineering and Technology, Patiala · Jul 2018 – Nov 2019</div>
+        </li>
+        <li>
+          <div class="role">Lecturer (selected through PPSC)</div>
+          <div class="meta">Punjab Technical Education Department · Jan – Jul 2018</div>
+        </li>
+        <li>
+          <div class="role">Research Fellow (JRF / SRF)</div>
+          <div class="meta">Visvesvaraya Ph.D. Scheme, Ministry of Electronics &amp; IT (MeitY) · 2016 – 2018</div>
+        </li>
+        <li>
+          <div class="role">Trainee Decision Scientist</div>
+          <div class="meta">Mu Sigma, Bangalore · Feb – May 2014</div>
+        </li>
+        <li>
+          <div class="role">Assistant Professor</div>
+          <div class="meta">Chandigarh University, Gharuan · Sep 2013 – Jan 2014</div>
+        </li>
+      </ul>
+    </section>
+
+    <!-- Research interests -->
+    <section class="card reveal" id="research" aria-labelledby="res-h">
+      <h2 id="res-h">Research Interests</h2>
+      <ul class="tags">
+        <li>Probabilistic Data Structures</li>
+        <li>Bloom Filters</li>
+        <li>Machine Learning</li>
+        <li>Big Data Analytics</li>
+        <li>Federated Learning</li>
+        <li>Large Language Models</li>
+        <li>Anomaly Detection</li>
+        <li>Healthcare 4.0 Analytics</li>
+        <li>Smart Cities &amp; IoT</li>
+        <li>AI for Drug Repurposing</li>
+      </ul>
+    </section>
+
+    <!-- Projects -->
+    <section class="card reveal" id="projects" aria-labelledby="prj-h">
+      <h2 id="prj-h">Sponsored &amp; Institutional Projects</h2>
+      <ul class="entries">
+        <li>
+          <div>
+            <div class="entry-title">SHIELD-Smart: Long-Endurance Lightweight Drones with AI-Based Border Activity Detection and Localization</div>
+            <div class="entry-meta">Department of Science &amp; Technology (DST) · 2025 – 2026</div>
+          </div>
+          <div class="badges"><span class="badge role">Principal Investigator</span><span class="badge ongoing">Ongoing</span></div>
+        </li>
+        <li>
+          <div>
+            <div class="entry-title">NITJ Marg-Darshak: AI-Driven Admissions Guidance Chatbot</div>
+            <div class="entry-meta">NIT Jalandhar (Institute-funded) · 2025 – 2026</div>
+          </div>
+          <div class="badges"><span class="badge role">Principal Investigator</span><span class="badge ongoing">Ongoing</span></div>
+        </li>
+        <li>
+          <div>
+            <div class="entry-title">BodhSetu: Generative AI-Powered Parental Support and Awareness on Learning Differences and Specific Learning Disabilities</div>
+            <div class="entry-meta">Indian Council of Social Science Research (ICSSR) · 2025 – 2027</div>
+          </div>
+          <div class="badges"><span class="badge role">Co-Investigator</span><span class="badge ongoing">Ongoing</span></div>
+        </li>
+        <li>
+          <div>
+            <div class="entry-title">Secure and Intelligent Ground Control System (GCS) for Real-Time Drone Operations</div>
+            <div class="entry-meta">Aviocian Technologies Pvt. Ltd. (Industry) · 2026 – 2028</div>
+          </div>
+          <div class="badges"><span class="badge role">Co-Investigator</span><span class="badge ongoing">Ongoing</span></div>
+        </li>
+        <li>
+          <div>
+            <div class="entry-title">Fog-Cloud Centric IoT Assisted Technologies in Healthcare</div>
+            <div class="entry-meta">TEQIP-III · 2020 – 2022</div>
+          </div>
+          <div class="badges"><span class="badge role">Co-Investigator</span><span class="badge done">Completed</span></div>
+        </li>
+      </ul>
+    </section>
+
+    <!-- Supervision -->
+    <section class="card reveal" id="supervision" aria-labelledby="sup-h">
+      <h2 id="sup-h">Doctoral Supervision</h2>
+      <ul class="entries">
+        <li>
+          <div>
+            <div class="entry-title">Towards Design and Analysis of Fog-Centric Intelligent Frameworks for Healthcare 4.0</div>
+            <div class="entry-meta">Aditya Gupta · Ph.D. awarded 2024</div>
+          </div>
+          <div class="badges"><span class="badge done">Awarded</span></div>
+        </li>
+        <li>
+          <div>
+            <div class="entry-title">Efficient Storage and Retrieval of Big Data in Smart Cities Using Probabilistic Data Structures</div>
+            <div class="entry-meta">Mandeep Kumar · Ph.D. awarded 2024</div>
+          </div>
+          <div class="badges"><span class="badge done">Awarded</span></div>
+        </li>
+        <li>
+          <div>
+            <div class="entry-title">A Novel Drug Repurposing Approach Utilizing Learning Techniques</div>
+            <div class="entry-meta">Sheo Kumar · Thesis submitted January 2026</div>
+          </div>
+          <div class="badges"><span class="badge done">Submitted</span></div>
+        </li>
+        <li>
+          <div>
+            <div class="entry-title">Machine Learning Oriented VM Allocation and Migration in Cloud</div>
+            <div class="entry-meta">Ankit</div>
+          </div>
+          <div class="badges"><span class="badge ongoing">In Progress</span></div>
+        </li>
+        <li>
+          <div>
+            <div class="entry-title">Federated Learning for Smart Cities: Enhancing Efficiency and Privacy with Probabilistic Data Structures</div>
+            <div class="entry-meta">Prince Rana</div>
+          </div>
+          <div class="badges"><span class="badge ongoing">In Progress</span></div>
+        </li>
+        <li>
+          <div>
+            <div class="entry-title">Improving Reliability of LLM-Based Agents through Hallucination Control</div>
+            <div class="entry-meta">Mandeep Mehra</div>
+          </div>
+          <div class="badges"><span class="badge ongoing">In Progress</span></div>
+        </li>
+        <li>
+          <div>
+            <div class="entry-title">Quantifying and Reducing Overconfidence in Large Language Models via Post-Hoc Calibration</div>
+            <div class="entry-meta">Akash Pundir</div>
+          </div>
+          <div class="badges"><span class="badge ongoing">In Progress</span></div>
+        </li>
+      </ul>
+    </section>
+
+    <!-- Publications -->
+    <section class="card reveal" id="publications" aria-labelledby="pub-h">
+      <h2 id="pub-h">Selected Publications</h2>
+      <div class="filter-bar" id="filter-bar" role="group" aria-label="Filter publications by year">
+        <span class="label">Filter by year:</span>
+      </div>
+      <ol class="pubs" id="pub-list">
+        <li data-year="2025">
+          <div class="pub-title">Comparative Analysis on Artificial Intelligence Methods for DTI and DTBA Prediction in Drug Repurposing</div>
+          <div class="pub-meta">Kumar, S., &amp; Singh, A. (2025). <em>Medicinal Chemistry Research</em>, 34(10), 2086–2114. <a class="doi" href="https://doi.org/10.1007/s00044-025-03465-7" target="_blank" rel="noopener noreferrer">DOI ↗</a></div>
+        </li>
+        <li data-year="2024">
+          <div class="pub-title">An Efficient Pending Interest Table Content Search in NDN through Stable Bloom Filter</div>
+          <div class="pub-meta">Kaur, R., Singh, A., Singh, A., Goyal, A., Singh, A., &amp; Batra, S. (2024). <em>The Computer Journal</em>, 67(3), 941–946. <a class="doi" href="https://doi.org/10.1093/comjnl/bxad033" target="_blank" rel="noopener noreferrer">DOI ↗</a></div>
+        </li>
+        <li data-year="2024">
+          <div class="pub-title">Anomalous Vehicle Recognition in Smart Cities Using Persistent Bloom Filter: Memory Efficient and Intelligent Monitoring</div>
+          <div class="pub-meta">Kumar, M., &amp; Singh, A. (2024). <em>Transactions on Emerging Telecommunications Technologies</em>, 35(1), e4896. <a class="doi" href="https://doi.org/10.1002/ett.4896" target="_blank" rel="noopener noreferrer">DOI ↗</a></div>
+        </li>
+        <li data-year="2023">
+          <div class="pub-title">Healthcare 4.0: Recent Advancements and Futuristic Research Directions</div>
+          <div class="pub-meta">Gupta, A., &amp; Singh, A. (2023). <em>Wireless Personal Communications</em>, 129(2), 933–952. <a class="doi" href="https://doi.org/10.1007/s11277-022-10164-8" target="_blank" rel="noopener noreferrer">DOI ↗</a></div>
+        </li>
+        <li data-year="2022">
+          <div class="pub-title">Probabilistic Data Structures in Smart City: Survey, Applications, Challenges, and Research Directions</div>
+          <div class="pub-meta">Kumar, M., &amp; Singh, A. (2022). <em>Journal of Ambient Intelligence and Smart Environments</em>, 14(4), 229–284. <a class="doi" href="https://doi.org/10.3233/AIS-220101" target="_blank" rel="noopener noreferrer">DOI ↗</a></div>
+        </li>
+        <li data-year="2020">
+          <div class="pub-title">Probabilistic Data Structures for Big Data Analytics: A Comprehensive Review</div>
+          <div class="pub-meta">Singh, A., Garg, S., Kaur, R., Batra, S., Kumar, N., &amp; Zomaya, A. Y. (2020). <em>Knowledge-Based Systems</em>, 188, 104987. <a class="doi" href="https://doi.org/10.1016/j.knosys.2019.104987" target="_blank" rel="noopener noreferrer">DOI ↗</a></div>
+        </li>
+        <li data-year="2020">
+          <div class="pub-title">BloomStore: Dynamic Bloom-Filter-Based Secure Rule-Space Management Scheme in SDN</div>
+          <div class="pub-meta">Singh, A., Batra, S., Aujla, G. S., Kumar, N., &amp; Yang, L. T. (2020). <em>IEEE Transactions on Industrial Informatics</em>, 16(10), 6252–6262. <a class="doi" href="https://doi.org/10.1109/TII.2020.2966708" target="_blank" rel="noopener noreferrer">DOI ↗</a></div>
+        </li>
+        <li data-year="2019">
+          <div class="pub-title">Probabilistic Data Structure-Based Community Detection and Storage Scheme in Online Social Networks</div>
+          <div class="pub-meta">Singh, A., Garg, S., Batra, S., &amp; Kumar, N. (2019). <em>Future Generation Computer Systems</em>, 94, 173–184. <a class="doi" href="https://doi.org/10.1016/j.future.2018.11.026" target="_blank" rel="noopener noreferrer">DOI ↗</a></div>
+        </li>
+        <li data-year="2018">
+          <div class="pub-title">Fuzzy-Folded Bloom Filter-as-a-Service for Big Data Storage in the Cloud</div>
+          <div class="pub-meta">Singh, A., Garg, S., Kaur, K., Batra, S., Kumar, N., &amp; Choo, K. K. R. (2018). <em>IEEE Transactions on Industrial Informatics</em>, 15(4), 2338–2348. <a class="doi" href="https://doi.org/10.1109/TII.2018.2850053" target="_blank" rel="noopener noreferrer">DOI ↗</a></div>
+        </li>
+        <li data-year="2018">
+          <div class="pub-title">Ensemble Based Spam Detection in Social IoT Using Probabilistic Data Structures</div>
+          <div class="pub-meta">Singh, A., &amp; Batra, S. (2018). <em>Future Generation Computer Systems</em>, 81, 359–371. <a class="doi" href="https://doi.org/10.1016/j.future.2017.09.072" target="_blank" rel="noopener noreferrer">DOI ↗</a></div>
+        </li>
+      </ol>
+      <div class="pub-foot">
+        <span id="pub-count" aria-live="polite"></span>
+        <a href="https://scholar.google.com/citations?user=At9LsDsAAAAJ&amp;hl=en" target="_blank" rel="noopener noreferrer">Complete list on Google Scholar ↗</a>
+      </div>
+
+      <h3 style="margin-top:26px">Books &amp; Book Chapters</h3>
+      <ul class="plain-list">
+        <li><span class="year">2025</span><span>Leveraging Drug Synergism to Uncover Novel Drug Effects: A Literature Review. In <em>Smarter Healthcare through Generative Intelligence</em>, CRC Press.</span></li>
+        <li><span class="year">2024</span><span><em>Smarter Healthcare through Generative Intelligence</em> (Reference Book). V. Jain, A. Gupta, A. Singh, P. Verma &amp; T. A. Shaikh. CRC Press, Taylor &amp; Francis.</span></li>
+        <li><span class="year">2023</span><span>Pruning in Recommendation System Using Learned Bloom Filter. In <em>Research Advances in Network Technologies</em>, CRC Press.</span></li>
+        <li><span class="year">2023</span><span>Sentiment Analysis of COVID-19 Tweets Using Voting Ensemble-Based Model. In <em>Image Based Computing for Food and Health Analytics</em>, Springer.</span></li>
+        <li><span class="year">2022</span><span>Issues and Challenges Related to Privacy and Security in Healthcare Using IoT, Fog, and Cloud Computing; and A Comprehensive Analysis on Masked Face Detection Algorithms. In <em>Advanced Healthcare Systems</em>, Wiley-Scrivener.</span></li>
+      </ul>
+    </section>
+
+    <!-- Awards -->
+    <section class="card reveal" id="awards" aria-labelledby="awd-h">
+      <h2 id="awd-h">Awards &amp; Honors</h2>
+      <ul class="plain-list">
+        <li><span class="year">2022, 2025</span><span>Listed among the <strong>Top 2% Scientists Worldwide</strong> — global ranking by Stanford University and Elsevier.</span></li>
+        <li><span class="year">2016–18</span><span>Visvesvaraya Ph.D. Fellowship (JRF / SRF) — Ministry of Electronics &amp; Information Technology, Government of India.</span></li>
+        <li><span class="year">2015</span><span>Qualified NET (Assistant Professor eligibility); also cleared GATE three times.</span></li>
+      </ul>
+    </section>
+
+    <!-- Outreach -->
+    <section class="card reveal" id="service" aria-labelledby="svc-h">
+      <h2 id="svc-h">Invited Talks &amp; Service</h2>
+      <ul class="plain-list">
+        <li><span class="year">2026</span><span>Panelist, <em>Aaj Di Gal</em>, DD Punjabi (Doordarshan) — AI for the benefit of humanity.</span></li>
+        <li><span class="year">2026</span><span>Course Coordinator and Master Trainer, Rashtriya Karmayogi Programme (Phase 2).</span></li>
+        <li><span class="year">2025</span><span>Distinguished Session Chair and Panelist, Research and Industrial Conclave (RIC) 2025, IIT Guwahati.</span></li>
+        <li><span class="year">2025</span><span>Expert lectures on Design and Analysis of Algorithms, Mata Vaishno Devi University, Jammu.</span></li>
+        <li><span class="year">2024</span><span>Expert talk, National FDP on Machine Learning for Business Intelligence (MMTTC, SMVDU).</span></li>
+        <li><span class="year">2023</span><span>Session Chair, International Conference on Secure Cyber Computing and Communication (ICSCCC), NIT Jalandhar.</span></li>
+        <li><span class="year">2022</span><span>Led the GoogleCloudReady Facilitator Program at NIT Jalandhar — 900+ participants across India earned cloud badges.</span></li>
+      </ul>
+      <h3 style="margin-top:22px">Institutional Responsibilities</h3>
+      <ul class="tags">
+        <li>M.Tech. Coordinator (Data Science &amp; Engineering)</li>
+        <li>Assistant Proctor</li>
+        <li>Website Management &amp; Development</li>
+        <li>Faculty In-charge, Operating Systems Lab</li>
+        <li>NITJ Technology Business Incubator</li>
+        <li>Faculty Coordinator, Technical Clubs</li>
+      </ul>
+    </section>
+
+    <!-- Teaching -->
+    <section class="card reveal" id="teaching" aria-labelledby="crs-h">
+      <h2 id="crs-h">Courses Taught</h2>
+      <div class="two-col">
+        <div>
+          <h3>Undergraduate</h3>
+          <ul class="courses">
+            <li>Probability and Statistics</li>
+            <li>Mathematical Foundations for Data Science</li>
+            <li>Design and Analysis of Algorithms</li>
+            <li>Data Structures and Algorithms</li>
+            <li>Operating Systems</li>
+            <li>Data Analytics</li>
+          </ul>
+        </div>
+        <div>
+          <h3>Postgraduate &amp; Ph.D. Coursework</h3>
+          <ul class="courses">
+            <li>Statistical Foundations for Data Science</li>
+            <li>Probability and Statistics</li>
+            <li>Statistical Methods for Research</li>
+            <li>Research Methodology (Ph.D. Coursework)</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer>
+    <div class="rule"></div>
+    <p>&copy; <span id="year">2026</span> Dr. Amritpal Singh · Department of Computer Science &amp; Engineering, NIT Jalandhar</p>
+  </footer>
+
+  <script>
+    (function () {
+      var body = document.body;
+
+      /* ---------- Photo fallback (shows initials until photo.jpg is added) ---------- */
+      var photo = document.getElementById('profile-photo');
+      var fallback = 'data:image/svg+xml;utf8,' + encodeURIComponent(
+        "<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 200'><rect width='200' height='200' fill='#24528f'/>" +
+        "<text x='100' y='122' font-family='Georgia,serif' font-size='72' fill='#ffffff' text-anchor='middle'>AS</text></svg>");
+      function useFallback() { photo.onerror = null; photo.src = fallback; }
+      photo.addEventListener('error', useFallback);
+      if (photo.complete && photo.naturalWidth === 0) { useFallback(); }
+
+      /* ---------- Dark mode ---------- */
+      var toggle = document.getElementById('theme-toggle');
+      function setTheme(dark) {
+        body.classList.toggle('dark', dark);
+        toggle.textContent = dark ? '☀️' : '🌙';
+        toggle.setAttribute('aria-pressed', String(dark));
+        toggle.setAttribute('aria-label', dark ? 'Switch to light mode' : 'Switch to dark mode');
+      }
+      var saved = null;
+      try { saved = localStorage.getItem('theme'); } catch (e) {}
+      var prefersDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+      setTheme(saved ? saved === 'dark' : prefersDark);
+      toggle.addEventListener('click', function () {
+        var dark = !body.classList.contains('dark');
+        setTheme(dark);
+        try { localStorage.setItem('theme', dark ? 'dark' : 'light'); } catch (e) {}
+      });
+
+      /* ---------- Mobile menu ---------- */
+      var menuBtn = document.getElementById('menu-btn');
+      var navLinks = document.getElementById('nav-links');
+      function closeMenu() {
+        navLinks.classList.remove('open');
+        menuBtn.setAttribute('aria-expanded', 'false');
+        menuBtn.textContent = '☰';
+      }
+      menuBtn.addEventListener('click', function () {
+        var open = navLinks.classList.toggle('open');
+        menuBtn.setAttribute('aria-expanded', String(open));
+        menuBtn.textContent = open ? '✕' : '☰';
+      });
+      navLinks.addEventListener('click', function (e) { if (e.target.tagName === 'A') closeMenu(); });
+      document.addEventListener('keydown', function (e) {
+        if (e.key === 'Escape' && navLinks.classList.contains('open')) { closeMenu(); menuBtn.focus(); }
+      });
+
+      /* ---------- Publication filter ---------- */
+      var pubs = Array.prototype.slice.call(document.querySelectorAll('#pub-list > li'));
+      var bar = document.getElementById('filter-bar');
+      var count = document.getElementById('pub-count');
+      var years = pubs.map(function (li) { return li.dataset.year; })
+        .filter(function (y, i, a) { return a.indexOf(y) === i; })
+        .sort(function (a, b) { return b - a; });
+
+      function makeChip(label, value) {
+        var b = document.createElement('button');
+        b.type = 'button';
+        b.className = 'chip';
+        b.textContent = label;
+        b.dataset.value = value;
+        b.setAttribute('aria-pressed', value === 'all' ? 'true' : 'false');
+        bar.appendChild(b);
+      }
+      makeChip('All', 'all');
+      years.forEach(function (y) { makeChip(y, y); });
+
+      function applyFilter(value) {
+        var shown = 0;
+        pubs.forEach(function (li) {
+          var match = value === 'all' || li.dataset.year === value;
+          li.hidden = !match;
+          if (match) shown++;
+        });
+        Array.prototype.forEach.call(bar.querySelectorAll('.chip'), function (c) {
+          c.setAttribute('aria-pressed', String(c.dataset.value === value));
+        });
+        count.textContent = 'Showing ' + shown + ' of ' + pubs.length + ' selected publications' +
+          (value === 'all' ? '.' : ' from ' + value + '.');
+      }
+      bar.addEventListener('click', function (e) {
+        if (e.target.classList.contains('chip')) applyFilter(e.target.dataset.value);
+      });
+      applyFilter('all');
+
+      /* ---------- Fade-in-up on scroll ---------- */
+      var reveals = document.querySelectorAll('.reveal');
+      if ('IntersectionObserver' in window) {
+        var io = new IntersectionObserver(function (entries) {
+          entries.forEach(function (en) {
+            if (en.isIntersecting) { en.target.classList.add('visible'); io.unobserve(en.target); }
+          });
+        }, { threshold: 0.1 });
+        reveals.forEach(function (el) { io.observe(el); });
+      } else {
+        reveals.forEach(function (el) { el.classList.add('visible'); });
+      }
+
+      /* ---------- Active nav link highlight ---------- */
+      var links = Array.prototype.slice.call(navLinks.querySelectorAll('a'));
+      if ('IntersectionObserver' in window) {
+        var spy = new IntersectionObserver(function (entries) {
+          entries.forEach(function (en) {
+            if (en.isIntersecting) {
+              links.forEach(function (a) {
+                a.classList.toggle('active', a.getAttribute('href') === '#' + en.target.id);
+              });
+            }
+          });
+        }, { rootMargin: '-40% 0px -55% 0px' });
+        links.forEach(function (a) {
+          var sec = document.querySelector(a.getAttribute('href'));
+          if (sec) spy.observe(sec);
+        });
+      }
+
+      /* ---------- Footer year ---------- */
+      document.getElementById('year').textContent = new Date().getFullYear();
+    })();
+  </script>
+</body>
+</html>
